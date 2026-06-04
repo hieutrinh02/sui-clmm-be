@@ -1,6 +1,7 @@
 {
   "name": "sui-clmm-be",
   "version": "0.1.0",
+  "packageManager": "pnpm@10.9.0",
   "description": "",
   "author": "",
   "private": true,
