@@ -4,7 +4,7 @@ import {
   OnModuleDestroy,
   OnModuleInit,
 } from '@nestjs/common';
-import { Pool, QueryResultRow } from 'pg';
+import { Pool, QueryResult, QueryResultRow } from 'pg';
 import { env } from '../config/env';
 
 @Injectable()
@@ -39,7 +39,7 @@ export class DbService implements OnModuleInit, OnModuleDestroy {
   async query<T extends QueryResultRow = QueryResultRow>(
     sql: string,
     params: unknown[] = [],
-  ) {
+  ): Promise<QueryResult<T>> {
     if (!this.pool) {
       throw new Error('DATABASE_URL is not configured');
     }
